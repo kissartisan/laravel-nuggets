@@ -1,6 +1,6 @@
 # Handy cheat sheet
 
-### Defining a password mutator
+### 1. Defining a password mutator
 
 Define a mutator in your model (most likely app\User.php) which would encrypt all your password fields:
 
