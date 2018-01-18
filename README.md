@@ -10,3 +10,5 @@ Define a mutator in your model (most likely app\User.php) which would encrypt al
     }
 
 Now you don't need to write the bcrypt function when dealing with the password field in subsequent controllers.
+
+- Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission)
