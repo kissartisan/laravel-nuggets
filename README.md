@@ -36,7 +36,7 @@ Ex:
     
 Convention = boot + [name of the trait]
 
-In our example = boot + RecordsActivity
+In our example = boot + RecordsActivity (my declared trait)
 
 * Note: you should declare it as static method
 
