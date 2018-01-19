@@ -29,6 +29,8 @@ Create a full name accessor:
             return $this->first_name . ' ' . $this->last_name;
         }
     }
+    
+Convention = get + [name of your attribute] + Attribute
 
 To access an accessor:
 
@@ -65,9 +67,7 @@ Ex:
         });
     }
     
-Convention = boot + [name of the trait]
-
-In our example = boot + RecordsActivity (my declared trait)
+Convention = boot + [name of your trait]
 
 * Note: you should declare it as static method
 
