@@ -15,7 +15,8 @@ Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/
 
 ### 2. Booting a trait
 
-Replicate the boot method of the class being inject into
+Replicate the boot method of the class being inject into. 
+Ex:
 
     protected static function bootRecordsActivity()
     {
