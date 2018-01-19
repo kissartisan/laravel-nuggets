@@ -40,4 +40,18 @@ In our example = boot + RecordsActivity (my declared trait)
 
 * Note: you should declare it as static method
 
-Found at [Laracast.com - Let's Build A Forum with Laravel and TDD: ](https://laracasts.com/series/lets-build-a-forum-with-laravel/episodes/25)
+Found at [Laracast.com - Let's Build A Forum with Laravel and TDD](https://laracasts.com/series/lets-build-a-forum-with-laravel/episodes/25)
+
+
+### 3. Creating dropdowns using Eloquent lists method
+
+Suppose you want to show a categories dropdown whose information is pulled from an Eloquent model
+
+    $categories = Category::lists('title', 'id');
+    
+Then somewhere in your view:
+
+    {{ Form::select('category', $categories) }}
+ 
+Found at [laravel-tricks.com - Easy dropdowns with Eloquent's Lists method](http://laravel-tricks.com/tricks/easy-dropdowns-with-eloquents-lists-method)
+
