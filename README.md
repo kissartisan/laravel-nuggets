@@ -16,6 +16,7 @@ Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/
 ### 2. Booting a trait
 
 Replicate the boot method of the class being inject into. 
+
 Ex:
 
     protected static function bootRecordsActivity()
@@ -34,6 +35,7 @@ Ex:
     }
     
 Convention = boot + [name of the trait]
+
 In our example = boot + RecordsActivity
 
 * Note: you should declare it as static method
