@@ -13,6 +13,37 @@ Now you don't need to write the bcrypt function when dealing with the password f
 
 Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission)
 
+
+### 2 . Appending accessors
+
+Sometimes, particularly when working with APIs or on other specific instances, you may need to append particular accessors (or attributes) to the default collection returned by Eloquent when retrieving records from the database. 
+
+Ex.
+
+Create a full name accessor:
+
+    class User extends Model
+    {
+        public function getFullNameAttribute()
+        {
+            return $this->first_name . ' ' . $this->last_name;
+        }
+    }
+
+To access an accessor:
+
+    {{ $user->fullName }}
+    
+To consume it in an API for example, you need the $appends property on your model to include in the default collection return by Eloquent:
+
+    class User extends Model
+    {
+        protected $appends = ['fullName'];
+    }
+
+Found at [Terry Harvey - 5 Laravel Eloquent Tips & Tricks](https://terryharvey.co.uk/5-laravel-eloquent-tips-tricks/)
+
+
 ### 2. Booting a trait
 
 Replicate the boot method of the class being inject into. 
@@ -55,3 +86,7 @@ Then somewhere in your view:
  
 Found at [laravel-tricks.com - Easy dropdowns with Eloquent's Lists method](http://laravel-tricks.com/tricks/easy-dropdowns-with-eloquents-lists-method)
 
+
+### 4. Accessors
+
+Create a new attribute or override existing attribute using Laravel acce
