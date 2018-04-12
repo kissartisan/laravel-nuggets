@@ -87,6 +87,33 @@ Then somewhere in your view:
 Found at [laravel-tricks.com - Easy dropdowns with Eloquent's Lists method](http://laravel-tricks.com/tricks/easy-dropdowns-with-eloquents-lists-method)
 
 
-### 4. Accessors
+### 4. Creating/modifying request input value before custom request validation
 
-Create a new attribute or override existing attribute using Laravel acce
+If you want to create/modify request input before it gets validated, you can use getValidatorInstance().
+
+    public function getValidatorInstance()
+    {
+        // Do something here
+
+        return parent::getValidatorInstance();
+    }
+
+Then, inside the method, you can execute request merging like so:
+
+    public function getValidatorInstance()
+    {
+        $this->getPermalink();
+
+        return parent::getValidatorInstance();
+    }
+
+    
+    /**
+     * Get the permalink using title
+     */
+    public function getPermalink()
+    {
+        $this->merge(['permalink' => str_slug(request()->input('title'))]);
+    }
+    
+Found at [StackOverflow](https://laracasts.com/discuss/channels/requests/modify-request-input-value-before-validation) while coding my own needs.
