@@ -116,4 +116,4 @@ Then, inside the method, you can execute request merging like so:
         $this->merge(['permalink' => str_slug(request()->input('title'))]);
     }
     
-Found at [StackOverflow](https://laracasts.com/discuss/channels/requests/modify-request-input-value-before-validation) while coding my own needs.
+Found at [Laracasts discussions](https://laracasts.com/discuss/channels/requests/modify-request-input-value-before-validation) while coding my own needs.
