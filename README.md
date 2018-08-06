@@ -140,11 +140,8 @@ If you want your search to be dynamic as possible, I just did implement it like 
 
         $query->where(function ($query) use ($keyword, $columns) {
             foreach ($columns as $key => $column) {
-                if ($key == 0) {
-                    $query->where($column, "LIKE", "%$keyword%");
-                } else {
-                    $query->orWhere($column, "LIKE", "%$keyword%");
-                }
+                $clause = $key == 0 ? 'where' : 'orWhere';
+                $query->$clause($column, "LIKE", "%$keyword%");
                     
                 if (!empty($relativeTables)) {
                     $this->filterByRelationship($query, $keyword, $relativeTables);
@@ -161,11 +158,8 @@ If you want your search to be dynamic as possible, I just did implement it like 
         foreach ($relativeTables as $relationship => $relativeColumns) {
             $query->orWhereHas($relationship, function($relationQuery) use ($keyword, $relativeColumns) {
                 foreach ($relativeColumns as $key => $column) {
-                    if ($key == 0) {
-                        $relationQuery->where($column, "LIKE", "%$keyword%");
-                    } else {
-                        $relationQuery->orWhere($column, "LIKE", "%$keyword%");
-                    }
+                    $clause = $key == 0 ? 'where' : 'orWhere';
+                    $relationQuery->$clause($column, "LIKE", "%$keyword%");
                 }
             });
         }
