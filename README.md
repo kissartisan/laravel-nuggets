@@ -91,6 +91,8 @@ Found at [laravel-tricks.com - Easy dropdowns with Eloquent's Lists method](http
 
 If you want to create/modify request input before it gets validated, you can use getValidatorInstance().
 
+    // app/Http/Requests/Admin/PostRequest.php
+    
     public function getValidatorInstance()
     {
         // Do something here
@@ -100,6 +102,8 @@ If you want to create/modify request input before it gets validated, you can use
 
 Then, inside the method, you can execute request merging like so:
 
+    // app/Http/Requests/Admin/PostRequest.php
+    
     public function getValidatorInstance()
     {
         $this->getPermalink();
@@ -117,3 +121,58 @@ Then, inside the method, you can execute request merging like so:
     }
     
 Found at [Laracasts discussions](https://laracasts.com/discuss/channels/requests/modify-request-input-value-before-validation) while coding my own needs.
+
+
+### 5. Dynamic search trait
+
+If you want your search to be dynamic as possible, I just did implement it like this:
+
+    
+    // app/Models/Shared/CanSearch.php - This is a trait that can be used by any models
+    
+    public function scopeSearch($query, $keyword, $columns = [], $relativeTables = [])
+    {
+        if (empty($columns)) {
+            $columns = array_except(
+                Schema::getColumnListing($this->table), $this->guarded
+            );
+        }   
+
+        $query->where(function ($query) use ($keyword, $columns) {
+            foreach ($columns as $key => $column) {
+                if ($key == 0)
+                    $query->where($column, "LIKE", "%$keyword%");
+                else
+                    $query->orWhere($column, "LIKE", "%$keyword%");
+                    
+                if (!empty($relativeTables))
+                    $this->filterByRelationship($query, $keyword, $relativeTables);
+            }
+        });
+
+        return $query;
+    }
+    
+    
+    private function filterByRelationship($query, $keyword, $relativeTables)
+    {
+        foreach ($relativeTables as $relationship => $relativeColumns) {
+            $query->orWhereHas($relationship, function($relationQuery) use ($keyword, $relativeColumns) {
+                foreach ($relativeColumns as $key => $column) {
+                    if ($key == 0)
+                        $relationQuery->where($column, "LIKE", "%$keyword%");
+                    else
+                        $relationQuery->orWhere($column, "LIKE", "%$keyword%");
+                }
+            });
+        }
+
+        return $query;
+    }
+
+Then, you can use it like so:
+    
+    $keyword = $request->keyword;
+    $users = User::search($keyword)->latest()->paginate(10);
+
+The scope "search" can optionally accept a 2nd parameter ($columns) to specify specific columns to search on the given model or accept a 3rd parameter ($relativeTables) to search for specific columns on related models.
