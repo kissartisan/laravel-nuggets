@@ -125,7 +125,7 @@ Found at [Laracasts discussions](https://laracasts.com/discuss/channels/requests
 
 ### 5. Dynamic search trait
 
-If you want your search to be dynamic as possible, I just did implement it like this:
+If you want your search functionality to be dynamic as possible, I just did implement it like this:
 
     
     // app/Models/Shared/CanSearch.php - This is a trait that can be used by any models
