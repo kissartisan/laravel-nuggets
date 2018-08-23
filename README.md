@@ -173,3 +173,16 @@ Then, you can use it like so:
     $users = User::search($keyword)->latest()->paginate(10);
 
 The scope "search" can optionally accept a 2nd parameter ($columns) to specify specific columns to search on the given model or accept a 3rd parameter ($relativeTables) to search for specific columns on related models.
+
+### 6. Don't hard code primary keys
+
+Instead of hardcoding your primary keys/values like this:
+
+    $post->id // ==  1
+    // OR
+    $post->post_id // I used to have my primary key like this to practice defining Eloquent relationships
+
+You can get the primary key value or primary key name like this:
+
+    $post->getKey() // == 1
+    $post->getKeyName() // returns the name of your primary key
