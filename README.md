@@ -174,6 +174,7 @@ Then, you can use it like so:
 
 The scope "search" can optionally accept a 2nd parameter ($columns) to specify specific columns to search on the given model or accept a 3rd parameter ($relativeTables) to search for specific columns on related models.
 
+
 ### 6. Don't hard code primary keys
 
 Instead of hardcoding your primary keys/values like this:
@@ -186,3 +187,38 @@ You can get the primary key value or primary key name like this:
 
     $post->getKey() // == 1
     $post->getKeyName() // returns the name of your primary key
+
+
+### 7. BelongsTo default relationship values
+
+Let’s say you have Product belonging to a Category:
+    
+    {{ $product->category->name }}
+
+But what if there is no category, or isn’t set for some reason, You will probably get an error prompting “trying to get the property of non-object”.
+
+I usually prevent it like this:
+
+    {{ $post->author->name ?? '' }}
+    
+PHP7's "??" is a null coalescing operator that has been added as syntactic shortcut for the common case of needing to use a ternary in conjunction with isset().
+
+But I did not know for a long time that fortunately, we can do it on Eloquent relationship level:
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
+    
+The category() relation will return an empty App\Category model if no category is attached to the product.
+
+Furthermore, we can assign default property values to that default model:
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withDefault([
+            'name' => 'Uncategorized'
+        ]);
+    }
+
+Found at [Laravel News](https://laravel-news.com/eloquent-tips-tricks) while searching for a useful plugin or code optimization tips.
