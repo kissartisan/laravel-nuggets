@@ -230,7 +230,7 @@ The title just nailed it:
 
     $products = Product::orderByRaw('RAND()')->take(5)->get();
 
-Found at [cjthomp/50 Laravel Tricks #9](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
+Found at [cjthomp/50 Laravel Tricks #9](https://gist.github.com/cjthomp/1455c39d4a14292676ea#9-retrieve-random-rows)
 
 ### 8. Getting the first or last array element
 
@@ -250,5 +250,5 @@ Oh, another one from CJ Thompson, really useful for me:
         </div>
     @endforeach
 
-Found at [cjthomp/50 Laravel Tricks #18](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
+Found at [cjthomp/50 Laravel Tricks #18](https://gist.github.com/cjthomp/1455c39d4a14292676ea#18-firstlast-array-element)
 
