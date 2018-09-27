@@ -249,6 +249,22 @@ Oh, another one from CJ Thompson, really useful for me:
             <h2>{{ $item->title }}</h2>
         </div>
     @endforeach
+    
+Eloquently, you can access the $loop variable which has 'first' and 'last' attributes:
+
+    // hide all but the first item
+    @foreach ($menu as $item)
+        <div @if ($loop->first) class="hidden" @endif>
+            <h2>{{ $item->title }}</h2>
+        </div>
+    @endforeach
+
+    // apply CSS to last item only
+    @foreach ($menu as $item)
+        <div @if ($loop->last) class="no_margin" @endif>
+            <h2>{{ $item->title }}</h2>
+        </div>
+    @endforeach
 
 Found at [cjthomp/50 Laravel Tricks #18](https://gist.github.com/cjthomp/1455c39d4a14292676ea#18-firstlast-array-element)
 
