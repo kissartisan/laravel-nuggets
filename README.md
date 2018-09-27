@@ -222,3 +222,12 @@ Furthermore, we can assign default property values to that default model:
     }
 
 Found at [Laravel News](https://laravel-news.com/eloquent-tips-tricks) while searching for a useful plugin or code optimization tips.
+
+
+### 8. Retrieving random rows
+
+The title just nailed it:
+
+    $products = Product::orderByRaw('RAND()')->take(5)->get();
+
+Found at [cjthomp/50 Laravel Tricks](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
