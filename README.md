@@ -230,4 +230,25 @@ The title just nailed it:
 
     $products = Product::orderByRaw('RAND()')->take(5)->get();
 
-Found at [cjthomp/50 Laravel Tricks](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
+Found at [cjthomp/50 Laravel Tricks #9](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
+
+### 8. Getting the first or last array element
+
+Oh, another one from CJ Thompson, really useful for me:
+
+    // hide all but the first item
+    @foreach ($menu as $item)
+        <div @if ($item != reset($menu)) class="hidden" @endif>
+            <h2>{{ $item->title }}</h2>
+        </div>
+    @endforeach
+
+    // apply CSS to last item only
+    @foreach ($menu as $item)
+        <div @if ($item == end($menu)) class="no_margin" @endif>
+            <h2>{{ $item->title }}</h2>
+        </div>
+    @endforeach
+
+Found at [cjthomp/50 Laravel Tricks #18](https://gist.github.com/cjthomp/1455c39d4a14292676ea)
+
