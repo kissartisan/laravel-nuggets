@@ -252,7 +252,7 @@ Oh, another one from CJ Thompson, really useful for me:
     
 Eloquently, you can access the $loop variable which has 'first' and 'last' attributes:
 
-    // hide all but the first item
+    // hide the first item
     @foreach ($menu as $item)
         <div @if ($loop->first) class="hidden" @endif>
             <h2>{{ $item->title }}</h2>
