@@ -232,7 +232,7 @@ The title just nailed it:
 
 Found at [cjthomp/50 Laravel Tricks #9](https://gist.github.com/cjthomp/1455c39d4a14292676ea#9-retrieve-random-rows)
 
-### 8. Getting the first or last array element
+### 9. Getting the first or last array element
 
 Oh, another one from CJ Thompson, really useful for me:
 
