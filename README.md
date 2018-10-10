@@ -279,9 +279,9 @@ As per the documentation, syncing the intermediary table is as easy as passing I
 But if you have an additional attribute in your belongsToMany relationship, you need to format your data like this:
 
     $user->roles()->sync([
-        1 => ['expires_at' => '2018-10-04 04:08:12'], 
-        2 => ['expires_at' => '2018-10-04 04:08:12'], 
-        3 => ['expires_at' => '2018-10-04 04:08:12']
+        1 => ['expires_at' => '2042-10-04 04:08:12'], 
+        2 => ['expires_at' => '2042-10-04 04:08:12'], 
+        3 => ['expires_at' => '2042-10-04 04:08:12']
     ]);
     
 In this example, the additional attribute we are pertaining to is the "expires_at" column.
@@ -289,7 +289,7 @@ In this example, the additional attribute we are pertaining to is the "expires_a
 I simply do it like this:
 
     $roleIDs = [1, 2, 3];
-    $roleExpirations = array_fill(0, count($roleIDs), ['expires_at' => now()->addDays(30)]);
+    $roleExpirations = array_fill(0, count($roleIDs), ['expires_at' => '2042-10-04 04:08:12']);
     $rolesToSync = array_combine($roleIDs, $roleExpirations);
     $user->roles()->sync($rolesToSync);
 
@@ -298,3 +298,15 @@ I simply do it like this:
 **array_combine** creates an array by using one array for keys and another for its values
 
 Basically, we use **$roleIDs** to be the keys of the array and **$roleExpirations** to be the values of the array that we passed in the sync method to achieve our desired format.
+
+But what if, you have different role expirations.
+Just loop through it and combine just like the previous example:
+
+    $roleIDs = [1, 2, 3];
+    $expirationDates = ['2042-10-04 04:08:12', 2042-10-05 04:08:12, 2042-10-06 04:08:12];
+    $roleExpirations = [];
+    foreach ($expirationDates as $expiration) {
+        $roleExpirations[] = ['expires_at' => $expiration];
+    }
+    $rolesToSync = array_combine($roleIDs, $roleExpirations);
+    $user->roles()->sync($rolesToSync);
