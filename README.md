@@ -268,3 +268,32 @@ Eloquently, you can access the $loop variable which has 'first' and 'last' attri
 
 Found at [cjthomp/50 Laravel Tricks #18](https://gist.github.com/cjthomp/1455c39d4a14292676ea#18-firstlast-array-element)
 
+
+### 10. Syncing belongsToMany relationship with extra pivot table attribute
+
+As per the documentation, syncing the intermediary table is as easy as passing IDs:
+    
+    $roleIDs = [1, 2, 3];
+    $user->roles()->sync($roleIDs);
+    
+But if you have an additional attribute in your belongsToMany relationship, you need to format your data like this:
+
+    $user->roles()->sync([
+        1 => ['expires_at' => '2018-10-04 04:08:12'], 
+        2 => ['expires_at' => '2018-10-04 04:08:12'], 
+        3 => ['expires_at' => '2018-10-04 04:08:12']
+    ]);
+    
+In this example, the additional attribute we are pertaining to is the "expires_at" column.
+
+I simply do it like this:
+
+    $roleIDs = [1, 2, 3];
+    $roleExpirations = array_fill(0, count($roleIDs), ['expires_at' => now()->addDays(30)]);
+    $rolesToSync = array_combine($roleIDs, $roleExpirations);
+    $user->roles()->sync($rolesToSync);
+
+***array_fill** fill an array with values
+***array_combine** creates an array by using one array for keys and another for its values
+
+Basically, we use **$roleIDs** to be the keys of the array and **$roleExpirations** to be the values of the array that we passed in the sync method to achieve our desired format.
