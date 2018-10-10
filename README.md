@@ -294,6 +294,7 @@ I simply do it like this:
     $user->roles()->sync($rolesToSync);
 
 **array_fill** fill an array with values
+
 **array_combine** creates an array by using one array for keys and another for its values
 
 Basically, we use **$roleIDs** to be the keys of the array and **$roleExpirations** to be the values of the array that we passed in the sync method to achieve our desired format.
