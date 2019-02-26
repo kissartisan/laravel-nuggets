@@ -310,3 +310,11 @@ Just loop through it and combine just like the previous example:
     }
     $rolesToSync = array_combine($roleIDs, $roleExpirations);
     $user->roles()->sync($rolesToSync);
+
+### 11. Pivot table with timestamps
+
+If you want your pivot table to have automatically maintained created_at and updated_at timestamps, use the withTimestamps method on the relationship definition:
+
+    return $this->belongsToMany('App\Role')->withTimestamps();
+    
+Found at [Laracasts How Do I > Understanding CSRF](https://laravel.com/docs/5.7/eloquent-relationships#updating-many-to-many-relationships)
