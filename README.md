@@ -318,3 +318,29 @@ If you want your pivot table to have automatically maintained created_at and upd
     return $this->belongsToMany('App\Role')->withTimestamps();
     
 Found at [Laracasts How Do I > Understanding CSRF](https://laravel.com/docs/5.7/eloquent-relationships#updating-many-to-many-relationships)
+
+### 12. Model Factories > Forget creating a relationship within a closure
+
+Instead of the common & traditional passing of closure to create a relationship in a factory like this:
+
+    $factory->define(App\Task::class, function (Faker $faker) {
+        return [
+            'body' => $faker->sentence,
+            'project_id' => function() {
+                return factory(\App\Project::class)->create()->id
+            }
+        ];
+    });
+    
+You can just pass a factory instance like so:
+
+    $factory->define(App\Task::class, function (Faker $faker) {
+        return [
+            'body' => $faker->sentence,
+            'project_id' => factory(\App\Project::class)
+        ];
+    });
+    
+ Behind the scenes, it will call create() method, it would fetch the id, and it will assign that in the 'project_id' column. Pretty cool isn't it?
+ 
+ Found at [Laracasts Build A Laravel App With TDD > Task UI Updates: Part 2](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/14)
