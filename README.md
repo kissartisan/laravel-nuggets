@@ -344,3 +344,25 @@ You can just pass a factory instance like so:
  Behind the scenes, it will call create() method, it would fetch the id, and it will assign that in the 'project_id' column. Pretty cool isn't it?
  
  Found at [Laracasts Build A Laravel App With TDD > Task UI Updates: Part 2](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/14)
+ 
+ 
+ ### 13. Touching relationship
+
+If find yourself needing to update the relationship's timestamp when updating a record, you may want to use $touches in the model class:
+
+
+    class Task extends Model
+    {
+        protected $guarded = [];
+
+        protected $touches = ['project'];
+
+        public function project()
+        {
+            return $this->belongsTo(Project::class);
+        }
+    }
+
+This will update the Project model's update_at column accordingly.
+
+Found at [Laracasts Build A Laravel App With TDD > Touch It](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/15)
