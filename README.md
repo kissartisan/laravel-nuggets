@@ -366,3 +366,24 @@ If find yourself needing to update the relationship's timestamp when updating a 
 This will update the Project model's update_at column accordingly.
 
 Found at [Laracasts Build A Laravel App With TDD > Touch It](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/15)
+
+
+ ### 14. Shorten code if array key & value are the same
+
+From this code:
+
+    public function recordActivity($type)
+    {
+        $this->activity()->create([
+            'description' => $type
+        ]);
+    } 
+
+We can use PHP's compact() function to create array using variable names and same output like the above code:
+
+    public function recordActivity($description)
+    {
+        $this->activity()->create(compact('description'));
+    }
+
+Found at [Laracasts Build A Laravel App With TDD > Project Activity Feeds: Part 3](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/22)
