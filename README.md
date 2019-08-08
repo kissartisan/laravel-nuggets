@@ -368,7 +368,7 @@ This will update the Project model's update_at column accordingly.
 Found at [Laracasts Build A Laravel App With TDD > Touch It](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/15)
 
 
- ### 14. Shorten code if array key & value are the same
+ ### 14. Create array using variable name
 
 From this code:
 
@@ -379,7 +379,7 @@ From this code:
         ]);
     } 
 
-We can use PHP's compact() function to create array using variable names and same output like the above code:
+We can use PHP's compact() function to create array using variable names and will output same functionality like the above code:
 
     public function recordActivity($description)
     {
