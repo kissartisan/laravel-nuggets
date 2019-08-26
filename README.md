@@ -387,3 +387,17 @@ We can use PHP's compact() function to create array using variable names and wil
     }
 
 Found at [Laracasts Build A Laravel App With TDD > Project Activity Feeds: Part 3](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/22)
+
+
+ ### 15. Shortcut for Polymorphic table
+
+When creating Polymorphic relations you are will most likely creating a column for id & type like this:
+    
+    $table->integer('subject_id')->unsigned();
+    $table->string('subject_type');
+
+But you can use 'morphs' instead of that code above to explicity express that you are creating a column for Polymorphic relationship:
+
+    $table->morphs('subject');
+
+Found at [Laracasts Build A Laravel App With TDD > The Subject of the Activity](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/25)
