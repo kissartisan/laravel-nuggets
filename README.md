@@ -391,7 +391,7 @@ Found at [Laracasts Build A Laravel App With TDD > Project Activity Feeds: Part 
 
  ### 15. Shortcut for Polymorphic table
 
-When creating Polymorphic relations you are will most likely creating a column for id & type like this:
+When creating Polymorphic relations you will most likely create a column for id & type like this:
     
     $table->integer('subject_id')->unsigned();
     $table->string('subject_type');
