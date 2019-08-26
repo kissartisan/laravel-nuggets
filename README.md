@@ -396,7 +396,7 @@ When creating Polymorphic relations you will most likely create a column for id 
     $table->integer('subject_id')->unsigned();
     $table->string('subject_type');
 
-But you can use 'morphs' instead of that code above to explicity express that you are creating a column for Polymorphic relationship:
+But you can use 'morphs' instead of the above code to explicity express that you are creating a column for Polymorphic relationship:
 
     $table->morphs('subject');
 
