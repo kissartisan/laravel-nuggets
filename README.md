@@ -429,3 +429,27 @@ Next, use the 'invitations' error bag to loop through the possible errors:
 So when you hit the submit button on a form, it will only include the errors specific to your named error bag
 
 Found at [Laracasts Build A Laravel App With TDD > Validation Errors For Multiple Forms](https://laracasts.com/series/build-a-laravel-app-with-tdd/episodes/34)
+
+
+### 17. Orphan record
+
+If you want a record with a relationship contraint to not be deleted when its foreign key reference was deleted you can use onDelete('set null'):
+
+    $table->foreign('user_id')
+        ->references('id')
+        ->on('users')
+        ->onDelete('set null');
+
+It will allow you to delete the parent record (in our example it is user_id in the users table) and the dependent record will just set the user_id to NULL.
+
+Also, if you want to have a default value when the parent record was deleted you can use withDefault() when defining eloquent relationships:
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id')->withDefault([
+            'name' => 'Guest User',
+        ]);
+    }
+
+
+Found at [Laracasts Laravel 6 From Scratch > Understanding Foreign Keys and Database Factories > comments section](https://laracasts.com/series/laravel-6-from-scratch/episodes/30)
