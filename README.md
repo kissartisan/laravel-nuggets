@@ -453,3 +453,14 @@ Also, if you want to have a default value when the parent record was deleted you
 
 
 Found at [Laracasts Laravel 6 From Scratch > Understanding Foreign Keys and Database Factories > comments section](https://laracasts.com/series/laravel-6-from-scratch/episodes/30)
+
+
+### 18. Replicate: make a copy of a row
+
+The most convenient way in Laravel to make a copy of database entry:
+
+    $post = Post::find(1);
+    $postReplica = $post->replicate();
+    $postReplica->save();
+
+Found at [Laravel News > 20 Laravel Eloquent Tips & Tricks > #14](https://laravel-news.com/eloquent-tips-tricks)
