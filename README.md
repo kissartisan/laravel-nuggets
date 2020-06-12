@@ -464,3 +464,32 @@ The most convenient way in Laravel to make a copy of database entry:
     $postReplica->save();
 
 Found at [Laravel News > 20 Laravel Eloquent Tips & Tricks > #14](https://laravel-news.com/eloquent-tips-tricks)
+
+
+### 19. constrained() method for migrations
+
+Laravel provides additional, terser methods that use convention to provide a better developer experience. 
+
+The example above could be written like so:
+
+    Schema::table('posts', function (Blueprint $table) {
+        $table->foreignId('user_id')->constrained();
+    });
+    
+The foreignId method is an alias for unsignedBigInteger while the constrained method will use convention to determine the table and column name being referenced. If your table name does not match the convention, you may specify the table name by passing it as an argument to the constrained method:
+
+    Schema::table('posts', function (Blueprint $table) {
+        $table->foreignId('user_id')->constrained('users_table');
+    });
+    
+You may also specify the desired action for the "on delete" and "on update" properties of the constraint:
+
+    $table->foreignId('user_id')
+      ->constrained()
+      ->onDelete('cascade');    
+      
+Any additional column modifiers must be called before constrained:Any additional column modifiers must be called before constrained:
+
+    $table->foreignId('user_id')
+      ->nullable()
+      ->constrained();
