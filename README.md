@@ -494,4 +494,4 @@ Any additional column modifiers must be called before constrained:Any additional
       ->nullable()
       ->constrained();
       
-Found at [Laravel offical docs > Foreign Key Constraints](https://laravel.com/docs/7.x/migrations#foreign-key-constraints)
+Found at [Laravel Documentation > Foreign Key Constraints](https://laravel.com/docs/7.x/migrations#foreign-key-constraints)
