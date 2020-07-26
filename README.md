@@ -466,7 +466,7 @@ The most convenient way in Laravel to make a copy of database entry:
 Found at [Laravel News > 20 Laravel Eloquent Tips & Tricks > #14](https://laravel-news.com/eloquent-tips-tricks)
 
 
-### 19. constrained() method for migrations
+### 19. Constrained() method for migrations
 
 Laravel provides additional, terser methods that use convention to provide a better developer experience. 
 
