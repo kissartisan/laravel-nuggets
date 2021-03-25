@@ -71,7 +71,7 @@ Convention = boot + [name of your trait]
 
 * Note: you should declare it as static method
 
-Found at [Laracast.com - Let's Build A Forum with Laravel and TDD](https://laracasts.com/series/lets-build-a-forum-with-laravel/episodes/25)
+Found at [Laracasts.com - Let's Build A Forum with Laravel and TDD](https://laracasts.com/series/lets-build-a-forum-with-laravel/episodes/25)
 
 
 ### 3. Creating dropdowns using Eloquent lists method
@@ -504,4 +504,4 @@ Easy enough, we can use either of the following:
     // OR
     request()->routeIs($namedRoute);
 
-Found at [Blade Component Cookbook > Nav Link Component](https://laracasts.com/series/blade-component-cookbook/episodes/7?autoplay=true)
+Found at [Laracasts Blade Component Cookbook > Nav Link Component](https://laracasts.com/series/blade-component-cookbook/episodes/7?autoplay=true)
