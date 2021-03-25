@@ -494,3 +494,14 @@ Any additional column modifiers must be called before constrained:
       ->constrained();
       
 Found at [Laravel Documentation > Foreign Key Constraints](https://laravel.com/docs/7.x/migrations#foreign-key-constraints)
+
+
+### 20. Finding named route on the current request
+
+Easy enough, we can use either of the following:
+
+    Request::routeIs($namedRoute);
+    // OR
+    request()->routeIs($namedRoute);
+
+Found at [Blade Component Cookbook > Nav Link Component](https://laracasts.com/series/blade-component-cookbook/episodes/7?autoplay=true)
