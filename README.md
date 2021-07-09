@@ -232,9 +232,9 @@ The title just nailed it:
     
 Found at [cjthomp/50 Laravel Tricks #9](https://gist.github.com/cjthomp/1455c39d4a14292676ea#9-retrieve-random-rows)
     
-[UPDATE] - When querying using DB Facade, you can also do something like this:
+[UPDATE] - Or more eloquently, you can also do something like this:
 
-    $randomUser = DB::table('users')->inRandomOrder()->first();
+    $randomUser = User::inRandomOrder()->limit(5)->get();
 
 Found at https://laravel.com/docs/8.x/queries#random-ordering
 
