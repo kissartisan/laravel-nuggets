@@ -511,3 +511,16 @@ Easy enough, we can use either of the following:
     request()->routeIs($namedRoute);
 
 Found at [Laracasts Blade Component Cookbook > Nav Link Component](https://laracasts.com/series/blade-component-cookbook/episodes/7?autoplay=true)
+
+
+### 21. Comparing Eloquent model IDs
+
+I'm pretty sure that most of us already experienced comparing model IDs:
+
+     $currentCategory->id === $category->id
+     
+But we can instead do something like this:
+
+    $currentCategory->is($category)
+
+Found at [Laravel 8 From Scratch: A Small JavaScript Dropdown Detour](https://laracasts.com/series/laravel-8-from-scratch/episodes/34)
