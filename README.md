@@ -524,3 +524,11 @@ But we can instead do something like this:
     $currentCategory->is($category)
 
 Found at [Laravel 8 From Scratch: A Small JavaScript Dropdown Detour](https://laracasts.com/series/laravel-8-from-scratch/episodes/34)
+
+### 22. Show columns of a model on tinker
+Run the command below inside tinker to get the schema of `users` table:
+```
+    Schema::getColumnListing('users');
+```
+
+Found at [Laracasts forum](https://laracasts.com/discuss/channels/laravel/how-to-show-the-columns-of-a-model-with-artisan-tinker?page=1&replyId=894184)
