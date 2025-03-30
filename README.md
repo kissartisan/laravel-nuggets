@@ -532,3 +532,6 @@ Run the command below inside tinker to get the schema of `users` table:
 ```
 
 Found at [Laracasts forum](https://laracasts.com/discuss/channels/laravel/how-to-show-the-columns-of-a-model-with-artisan-tinker?page=1&replyId=894184)
+
+### 23. Disabling Lazy Loading to prevent N+1 issues
+In your `AppServiceProvider::boot()`, you can disable lazy loading using `Eloquent\Model::preventLadyLoading()` so you can make sure that you will not run into any N + 1 issues.
