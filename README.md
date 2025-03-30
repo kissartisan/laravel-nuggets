@@ -535,3 +535,8 @@ Found at [Laracasts forum](https://laracasts.com/discuss/channels/laravel/how-to
 
 ### 23. Disabling Lazy Loading to prevent N+1 issues
 In your `AppServiceProvider::boot()`, you can disable lazy loading using `Eloquent\Model::preventLadyLoading()` so you can make sure that you will not run into any N + 1 issues.
+
+### 24. Listing routes command excluding vendor routes
+```
+php artisan route:list --except-vendor
+```
