@@ -540,3 +540,13 @@ In your `AppServiceProvider::boot()`, you can disable lazy loading using `Eloque
 ```
 php artisan route:list --except-vendor
 ```
+
+### 25. Using `confirmed` on Request Validation
+If you use `confirmed` request validation on a field, it will expected a `{field}_confirmation` field to be an exact match to pass the validation.
+
+E.g.
+```
+request()->validate([
+    'password' => ['required', 'confirmed'], // Requires password_confirmation input field to match the password input field.
+]);
+```
