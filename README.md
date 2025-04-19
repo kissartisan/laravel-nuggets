@@ -551,10 +551,10 @@ request()->validate([
 ]);
 ```
 
-### 26. API development in Laravel 12
-In Laravel 12, there's no `routes/api.php` file provided by a fresh Laravel installation.
+### 26. API Development in Laravel 12
+In Laravel 12, API development scaffolding is not included on a fresh Laravel installation.
 
-Do bring back the API classes and files you can use this command:
+To bring back the API classes and files you can use this command:
 ```
 php artisan install:api
 ```
