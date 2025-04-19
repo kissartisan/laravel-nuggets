@@ -550,3 +550,13 @@ request()->validate([
     'password' => ['required', 'confirmed'], // Requires password_confirmation input field to match the password input field.
 ]);
 ```
+
+### 26. API development in Laravel 12
+In Laravel 12, there's no `routes/api.php` file provided by a fresh Laravel installation.
+
+Do bring back the API classes and files you can use this command:
+```
+php artisan install:api
+```
+
+That command will scaffold everything that you need to start using Laravel as an API.
