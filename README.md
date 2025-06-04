@@ -560,3 +560,25 @@ php artisan install:api
 ```
 
 That command will scaffold everything that you need to start using Laravel as an API.
+
+### 27. Signed Routes
+Signed URLs are especially useful for routes that are publicly accessible yet need a layer of protection against URL manipulation.
+
+For example, you might use signed URLs to implement a public "unsubscribe" link that is emailed to your customers. To create a signed URL to a named route, use the signedRoute method of the URL facade:
+
+```
+use Illuminate\Support\Facades\URL;
+ 
+return URL::signedRoute('unsubscribe', ['user' => 1]);
+```
+
+If you would like to generate a temporary signed route URL that expires after a specified amount of time, you may use the temporarySignedRoute method. 
+```
+use Illuminate\Support\Facades\URL;
+ 
+return URL::temporarySignedRoute(
+    'unsubscribe', now()->addMinutes(30), ['user' => 1]
+);
+```
+
+Found at [Laravel Security Through Examples > Signed Routes](https://laracasts.com/series/laravel-security-through-examples/episodes/9)
