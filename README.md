@@ -11,7 +11,7 @@ Define a mutator in your model (most likely app\User.php) which would encrypt al
 
 Now you don't need to write the bcrypt function when dealing with the password field in subsequent controllers.
 
-Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission)
+[OUTDATED] Found at [Scotch.io tutorial on user authorization](https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission)
 
 
 ### 2 . Appending accessors
@@ -43,7 +43,7 @@ To consume it in an API for example, you need the $appends property on your mode
         protected $appends = ['fullName'];
     }
 
-Found at [Terry Harvey - 5 Laravel Eloquent Tips & Tricks](https://terryharvey.co.uk/5-laravel-eloquent-tips-tricks/)
+[OUTDATED] Found at [Terry Harvey - 5 Laravel Eloquent Tips & Tricks](https://terryharvey.co.uk/5-laravel-eloquent-tips-tricks/)
 
 
 ### 2. Booting a trait
