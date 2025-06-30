@@ -582,3 +582,18 @@ return URL::temporarySignedRoute(
 ```
 
 Found at [Laravel Security Through Examples > Signed Routes](https://laracasts.com/series/laravel-security-through-examples/episodes/9)
+
+
+### 28. Showing Eloquent Models Details
+
+#### Command
+```
+ 𝗽𝗵𝗽 𝗮𝗿𝘁𝗶𝘀𝗮𝗻 𝗺𝗼𝗱𝗲𝗹:𝘀𝗵𝗼𝘄 {ModelName}
+```
+
+✅ Instantly shows:
+ • Table name
+ • Attributes
+ • Relationships (HasMany, BelongsTo, etc.)
+
+ Found on a [LinkedIn Post](https://www.linkedin.com/posts/activity-7345330325742313476-zsmH?utm_source=share&utm_medium=member_desktop&rcm=ACoAABbqsUQBmntC0OEJXHtRoUcQ--f_-xktFHY)
