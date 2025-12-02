@@ -610,5 +610,5 @@ use Illuminate\Support\Facades\Date;
 Date::use(CarbonImmutable::class);
 ```
 
-Found this on the episode of [Defensive Laravel > Immutable Dates (Ep. 4) at Laracasts](https://laracasts.com/series/defensive-laravel/episodes/4)
+Found this on the episode of [Defensive Laravel > Immutable Dates (Ep. 4) at Laracasts comments section](https://laracasts.com/series/defensive-laravel/episodes/4)
 
