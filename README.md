@@ -597,3 +597,16 @@ Found at [Laravel Security Through Examples > Signed Routes](https://laracasts.c
  • Relationships (HasMany, BelongsTo, etc.)
 
  Found on a [LinkedIn Post](https://www.linkedin.com/posts/activity-7345330325742313476-zsmH?utm_source=share&utm_medium=member_desktop&rcm=ACoAABbqsUQBmntC0OEJXHtRoUcQ--f_-xktFHY)
+
+
+### 29. Date Immutability Across Laravel project
+
+If you want immutable dates across the entire project, regardless of model casting, even from `now()`, `today()` and other helper functions without calling `->toImmutable()`, you can add this in AppServiceProvider:
+
+```
+use Carbon\CarbonImmutable;
+use Illuminate\Support\Facades\Date;
+
+Date::use(CarbonImmutable::class);
+```
+
