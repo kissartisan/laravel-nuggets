@@ -601,7 +601,7 @@ Found at [Laravel Security Through Examples > Signed Routes](https://laracasts.c
 
 ### 29. Date Immutability Across Laravel project
 
-If you want immutable dates across the entire project, regardless of model casting, even from `now()`, `today()` and other helper functions without calling `->toImmutable()`, you can add this in AppServiceProvider:
+If you want immutable dates across the entire project, regardless of model casting, even from `now()`, `today()` and other helper functions without calling `->toImmutable()`, you can add this in `AppServiceProvider` class:
 
 ```
 use Carbon\CarbonImmutable;
